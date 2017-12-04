@@ -1,47 +1,58 @@
 import React from 'react';
-import { TextInput, View, Text } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 
-const Input = ({ label, onChangeText, placeholder, keyboardType, secureTextEntry, value }) => {
-    const { inputStyle, labelStyle, containerStyle } = styles;
+const Input = ({
+   keyboardType,
+   label,
+   onChangeText,
+   placeholder,
+   secureTextEntry,
+   value
+}) => {
+   const {
+      containerStyle,
+      inputStyle,
+      labelStyle
+   } = styles;
 
-    return (
-        <View style={containerStyle}>
-            <Text style={labelStyle}>{label}</Text>
-            {/* 9-6 */}
-            {/* We add the props for "value" */}
+   return (
+      <View style={containerStyle}>
+         <Text style={labelStyle}>{label}</Text>
             <TextInput
-                secureTextEntry={secureTextEntry}
-                autoCorrect={false}
-                placeholder={placeholder}
-                keyboardType={keyboardType}
-                onChangeText={onChangeText}
-                style={inputStyle}
-                value={value}
+               autoCorrect={false}
+               keyboardType={keyboardType}
+               onChangeText={onChangeText}
+               placeholder={placeholder}
+               secureTextEntry={secureTextEntry}
+               style={inputStyle}
+               value={value}
             />
-        </View>
-    );
+      </View>
+   );
 };
 
 const styles = {
-    inputStyle: {
-        color: '#000',
-        paddingRight: 5,
-        paddingLeft: 5,
-        fontSize: 18,
-        lineHeight: 23,
-        flex: 2
-    },
-    labelStyle: {
-        fontSize: 18,
-        paddingLeft: 20,
-        flex: 1
-    },
-    containerStyle: {
-        height: 40,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center'
-    }
+   containerStyle: {
+      alignItems: 'center',
+      flex: 1,
+      flexDirection: 'row',  
+      height: 40
+   },
+   
+   inputStyle: {
+      color: '#000',
+      flex: 2,
+      fontSize: 18,
+      lineHeight: 23,
+      paddingLeft: 5,
+      paddingRight: 5      
+   },
+   
+   labelStyle: {
+      flex: 1,
+      fontSize: 18,
+      paddingLeft: 20,
+   }
 };
 
 export { Input };
